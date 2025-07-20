@@ -1,4 +1,4 @@
-﻿using CultivationFramework;
+using CultivationFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +10,6 @@ namespace TestMod
 {
     public class CultivationStageDef : Def
     {
-        public string name;
-
-        public string description;
-  
-      
         public QiType qiType;
 
         // Multiplier to the base Qi regeneration rate.

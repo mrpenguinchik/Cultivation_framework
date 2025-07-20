@@ -1,4 +1,4 @@
-﻿// CultivationFramework.cs
+// CultivationFramework.cs
 // RimWorld cultivation framework skeleton (updated)
 // Author: (your name)
 // License: MIT

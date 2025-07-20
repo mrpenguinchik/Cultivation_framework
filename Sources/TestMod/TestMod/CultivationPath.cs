@@ -1,4 +1,4 @@
-﻿using CultivationFramework;
+using CultivationFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +20,6 @@ namespace TestMod
 
         // List of display names for major stages (e.g. "Foundation", "Core Formation" …)
        public List<CultivationStageDef> stageDefs;
-   
-        public float progress;
     }
 
     #endregion
