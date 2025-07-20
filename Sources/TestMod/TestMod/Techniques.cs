@@ -159,88 +159,9 @@ namespace TestMod
     }
 
     // Example subclasses
-    public class TechniqueProjectile : TargetCastTechnique
-    {
-        public ThingDef projectileDef;
-        public float damage = 20f;
-        public float range = 24f;
 
-        protected override void ActivateTarget(Pawn caster, LocalTargetInfo target)
-        {
-            if (!target.IsValid)
-                target = caster;
-            Projectile projectile = (Projectile)GenSpawn.Spawn(projectileDef, caster.Position, caster.Map);
-            projectile.Launch(caster, target, target, ProjectileHitFlags.IntendedTarget);
-        }
-    }
 
-    public class TechniqueBuffHediff : SelfCastTechnique
-    {
-        public HediffDef hediffDef;
-        public int durationTicks = 600;
-
-        protected override void ActivateSelf(Pawn caster)
-        {
-            Hediff hediff = HediffMaker.MakeHediff(hediffDef, caster);
-            hediff.Severity = 1f;
-            caster.health.AddHediff(hediff);
-            // TODO: duration tracking.
-        }
-    }
-
-    public class TechniqueTeleport : SelfCastTechnique
-    {
-        public int range = 12;
-
-        protected override void ActivateSelf(Pawn caster)
-        {
-            IntVec3 dest = CellFinder.RandomClosewalkCellNear(caster.Position, caster.Map, range);
-            caster.Position = dest;
-            caster.Notify_Teleported();
-        }
-    }
-
-    public class TechniqueExplosionOnTarget : TargetAreaTechnique
-    {
-        public DamageDef damageDef = DamageDefOf.Flame;
-
-        public TechniqueExplosionOnTarget()
-        {
-            areaRadius = 3f;
-        }
-
-        protected override void ActivateOnTargetArea(Pawn caster, LocalTargetInfo target)
-        {
-            IntVec3 cell = target.IsValid ? target.Cell : caster.Position;
-            GenExplosion.DoExplosion(cell, caster.Map, areaRadius, damageDef, caster);
-        }
-    }
-
-    public class TechniqueBurstAroundSelf : AreaAroundTechnique
-    {
-        public DamageDef damageDef = DamageDefOf.Stun;
-
-        public TechniqueBurstAroundSelf()
-        {
-            areaRadius = 3f;
-        }
-
-        protected override void ActivateAroundCaster(Pawn caster)
-        {
-            GenExplosion.DoExplosion(caster.Position, caster.Map, areaRadius, damageDef, caster);
-        }
-    }
-
-    public class TechniqueChangeWeather : SimpleTechnique
-    {
-        public WeatherDef weatherDef;
-
-        protected override void ActivateSimple(Pawn caster)
-        {
-            if (weatherDef != null)
-                caster.Map.weatherManager.TransitionTo(weatherDef);
-        }
-    }
+ 
 
 
 }
