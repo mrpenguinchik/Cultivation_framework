@@ -1,0 +1,8 @@
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName="Human"]/inspectorTabs</xpath>
+    <value>
+      <li>TestMod.ITab_Cultivation</li>
+    </value>
+  </Operation>
+</Patch>

@@ -187,12 +187,6 @@ namespace TestMod
         #region Gizmos
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            yield return new Command_Action
-            {
-                defaultLabel = "Cultivation",
-                defaultDesc = "View cultivation progress",
-                action = () => Find.WindowStack.Add(new Window_CultivationProgress(this))
-            };
             foreach (var tech in knownTechniques)
                 yield return tech.GetGizmo(parent as Pawn);
         }

@@ -2,6 +2,9 @@
 <Defs>
   <ThingDef ParentName="Book" Class="TestMod.PathBookDef">
     <thingClass>ThingWithComps</thingClass>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
     <defName>BookSpiritualPath</defName>
     <label>spiritual path manual</label>
     <description>A book that teaches the Spiritual Path.</description>

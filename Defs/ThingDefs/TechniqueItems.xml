@@ -2,6 +2,9 @@
 <Defs>
   <ThingDef ParentName="Book" Class="TestMod.TechniqueBookDef">
     <thingClass>ThingWithComps</thingClass>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
     <defName>BookGainQi</defName>
     <label>technique manual</label>
     <description>A manual describing how to gather Qi.</description>
