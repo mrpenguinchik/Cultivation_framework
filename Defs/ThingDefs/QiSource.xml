@@ -4,9 +4,9 @@
     <defName>QiCrystal</defName>
     <label>qi crystal</label>
     <description>A crystal that radiates Qi.</description>
-    <thingClass>ThingWithComps</thingClass>
+    <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Item/Resource/StoneBlocks/StoneBlocksGranite</texPath>
+      <texPath>Things/Item/Resource/StoneBlocks/BlocksGranite</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <comps>
