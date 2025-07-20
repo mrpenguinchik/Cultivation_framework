@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="Book" Class="TestMod.TechniqueBookDef">
+    <defName>BookGainQi</defName>
+    <label>technique manual</label>
+    <description>A manual describing how to gather Qi.</description>
+    <technique Class="TestMod.GainQiTechnique">
+      <defName>GainQiTechnique</defName>
+      <label>Gather Qi</label>
+      <qiCost>0</qiCost>
+    </technique>
+    <comps>
+      <li Class="TestMod.CompProperties_LearnTechnique" />
+    </comps>
+  </ThingDef>
+</Defs>

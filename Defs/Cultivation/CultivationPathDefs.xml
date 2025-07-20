@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <TestMod.CultivationStageDef ParentName=""> <!-- Stage 1 -->
+    <defName>CF_Stage_Foundation</defName>
+    <label>Foundation</label>
+    <qiType>BaseQi</qiType>
+    <baseRegenMultiplier>1.0</baseRegenMultiplier>
+    <needProgressToNextStage>100</needProgressToNextStage>
+  </TestMod.CultivationStageDef>
+
+  <TestMod.CultivationStageDef ParentName=""> <!-- Stage 2 -->
+    <defName>CF_Stage_Core</defName>
+    <label>Core Formation</label>
+    <qiType>CoreQi</qiType>
+    <baseRegenMultiplier>1.2</baseRegenMultiplier>
+    <needProgressToNextStage>200</needProgressToNextStage>
+  </TestMod.CultivationStageDef>
+
+  <TestMod.CultivationPathDef>
+    <defName>CF_SpiritualPath</defName>
+    <label>Spiritual Path</label>
+    <pathType>Spiritual</pathType>
+    <element>None</element>
+    <stageDefs>
+      <li>CF_Stage_Foundation</li>
+      <li>CF_Stage_Core</li>
+    </stageDefs>
+  </TestMod.CultivationPathDef>
+</Defs>

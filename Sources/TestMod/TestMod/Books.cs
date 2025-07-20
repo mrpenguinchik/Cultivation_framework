@@ -4,6 +4,22 @@ using Verse;
 
 namespace TestMod
 {
+    /// <summary>
+    /// Def class for a book that teaches a single cultivation technique.
+    /// </summary>
+    public class TechniqueBookDef : ThingDef
+    {
+        public CultivationTechnique technique;
+    }
+
+    /// <summary>
+    /// Def class for a book that grants an entire cultivation path.
+    /// </summary>
+    public class PathBookDef : ThingDef
+    {
+        public CultivationPathDef pathDef;
+    }
+
     public class CompProperties_LearnTechnique : CompProperties_UseEffect
     {
         public CultivationTechnique technique;
@@ -20,10 +36,13 @@ namespace TestMod
         {
             base.DoEffect(user);
             var comp = user.TryGetComp<CompCultivator>();
-            if (comp != null && Props.technique != null && !comp.knownTechniques.Contains(Props.technique))
+            CultivationTechnique tech = Props.technique;
+            if (tech == null && parent.def is TechniqueBookDef def)
+                tech = def.technique;
+            if (comp != null && tech != null && !comp.knownTechniques.Contains(tech))
             {
-                comp.knownTechniques.Add(Props.technique);
-                Messages.Message(user.LabelShort + " выучил технику " + Props.technique.label, user, MessageTypeDefOf.PositiveEvent);
+                comp.knownTechniques.Add(tech);
+                Messages.Message(user.LabelShort + " выучил технику " + tech.label, user, MessageTypeDefOf.PositiveEvent);
             }
         }
     }
@@ -44,10 +63,13 @@ namespace TestMod
         {
             base.DoEffect(user);
             var comp = user.TryGetComp<CompCultivator>();
-            if (comp != null && Props.pathDef != null && !comp.paths.Any(p => p.pathDef == Props.pathDef))
+            CultivationPathDef def = Props.pathDef;
+            if (def == null && parent.def is PathBookDef pDef)
+                def = pDef.pathDef;
+            if (comp != null && def != null && !comp.paths.Any(p => p.pathDef == def))
             {
-                comp.paths.Add(new CultivationPath { pathDef = Props.pathDef, stageIndex = 0, xp = 0f });
-                Messages.Message(user.LabelShort + " изучил путь " + Props.pathDef.label, user, MessageTypeDefOf.PositiveEvent);
+                comp.paths.Add(new CultivationPath { pathDef = def, stageIndex = 0, xp = 0f });
+                Messages.Message(user.LabelShort + " изучил путь " + def.label, user, MessageTypeDefOf.PositiveEvent);
             }
         }
     }

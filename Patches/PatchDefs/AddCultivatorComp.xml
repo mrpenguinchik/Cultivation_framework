@@ -1,0 +1,8 @@
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
+    <value>
+      <li Class="TestMod.CompProperties_Cultivator" />
+    </value>
+  </Operation>
+</Patch>
