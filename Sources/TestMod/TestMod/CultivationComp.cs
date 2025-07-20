@@ -30,15 +30,10 @@ namespace TestMod
         public CompProperties_Cultivator Props => (CompProperties_Cultivator)props;
 
         #region Fields
-        public float currentQi;
-        public float maxQi;
-        public int currentRealm;
-
-   
-            
         public List<PathProgress> paths = new List<PathProgress>();
         public List<CultivationTechnique> knownTechniques = new List<CultivationTechnique>();
         public int activePathIndex;
+        public int CurrentRealm => paths.Any() ? paths.Max(p => p.stageIndex) : 0;
         #endregion
 
         #region Ticking / Qi regeneration
@@ -78,9 +73,9 @@ namespace TestMod
             var source = FindNearbyQiSource();
             if (source == null) return; // cannot cultivate away from Qi
 
-            float multiplier = 1f;
             foreach (var p in paths)
             {
+                float multiplier = 1f;
                 if (p.stageIndex >= 0 && p.stageIndex < p.pathDef.stageDefs.Count)
                 {
                     var stage = p.pathDef.stageDefs[p.stageIndex];
@@ -94,16 +89,14 @@ namespace TestMod
                     multiplier *= 1.2f;
                 else if (source.Element.Suppresses(elem))
                     multiplier *= 0.5f;
-            }
 
-            float regen = 0.01f * bodySize * multiplier;
-            currentQi = Mathf.Min(currentQi + regen, maxQi);
+                float regen = 0.01f * bodySize * multiplier;
+                p.currentQi = Mathf.Min(p.currentQi + regen, p.maxQi);
+            }
         }
 
         private void HandlePathProgress()
         {
-            if (currentQi < maxQi) return;
-
             List<PathProgress> active = new List<PathProgress>();
             if (Props.cultivateMultiplePaths)
             {
@@ -120,6 +113,7 @@ namespace TestMod
             foreach (var p in active)
             {
                 if (p.stageIndex < 0 || p.stageIndex >= p.pathDef.stageDefs.Count) continue;
+                if (p.currentQi < p.maxQi) continue;
                 var stage = p.pathDef.stageDefs[p.stageIndex];
                 p.xp += amount;
                 if (p.xp >= stage.needProgressToNextStage && p.stageIndex < p.pathDef.stageDefs.Count - 1)
@@ -135,21 +129,61 @@ namespace TestMod
                     }
                 }
             }
-            currentRealm = paths.Max(p => p.stageIndex);
+            // Realm is derived dynamically from paths
         }
         #endregion
 
         #region API helpers
-        public bool ConsumeQi(float amount)
+        public bool ConsumeQi(float amount, QiType? type = null)
         {
-            if (currentQi < amount) return false;
-            currentQi -= amount;
-            return true;
+            foreach (var p in paths)
+            {
+                if (type.HasValue)
+                {
+                    if (p.stageIndex < 0 || p.stageIndex >= p.pathDef.stageDefs.Count) continue;
+                    var stage = p.pathDef.stageDefs[p.stageIndex];
+                    if (stage.qiType != type.Value) continue;
+                }
+
+                if (p.currentQi >= amount)
+                {
+                    p.currentQi -= amount;
+                    return true;
+                }
+            }
+            return false;
         }
 
-        public void GainQi(float amount)
+        public bool HasQi(float amount, QiType? type = null)
         {
-            currentQi = Mathf.Min(currentQi + amount, maxQi);
+            foreach (var p in paths)
+            {
+                if (type.HasValue)
+                {
+                    if (p.stageIndex < 0 || p.stageIndex >= p.pathDef.stageDefs.Count) continue;
+                    var stage = p.pathDef.stageDefs[p.stageIndex];
+                    if (stage.qiType != type.Value) continue;
+                }
+
+                if (p.currentQi >= amount)
+                    return true;
+            }
+            return false;
+        }
+
+        public void GainQi(float amount, QiType? type = null)
+        {
+            foreach (var p in paths)
+            {
+                if (type.HasValue)
+                {
+                    if (p.stageIndex < 0 || p.stageIndex >= p.pathDef.stageDefs.Count) continue;
+                    var stage = p.pathDef.stageDefs[p.stageIndex];
+                    if (stage.qiType != type.Value) continue;
+                }
+
+                p.currentQi = Mathf.Min(p.currentQi + amount, p.maxQi);
+            }
             // TODO: breakthrough check.
         }
         #endregion
@@ -172,14 +206,14 @@ namespace TestMod
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref currentQi, "currentQi");
-            Scribe_Values.Look(ref maxQi, "maxQi");
-            Scribe_Values.Look(ref currentRealm, "currentRealm", 0);
             Scribe_Values.Look(ref activePathIndex, "activePathIndex", 0);
             Scribe_Collections.Look(ref paths, "paths", LookMode.Deep);
             Scribe_Collections.Look(ref knownTechniques, "knownTechniques", LookMode.Deep);
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
-                currentRealm = paths.Any() ? paths.Max(p => p.stageIndex) : 0;
+            {
+                if (activePathIndex >= paths.Count)
+                    activePathIndex = paths.Count - 1;
+            }
         }
         #endregion
     }
