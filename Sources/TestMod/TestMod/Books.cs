@@ -46,7 +46,7 @@ namespace TestMod
             var comp = user.TryGetComp<CompCultivator>();
             if (comp != null && Props.pathDef != null && !comp.paths.Any(p => p.pathDef == Props.pathDef))
             {
-                comp.paths.Add(new PathProgress { pathDef = Props.pathDef, stageIndex = 0, xp = 0f });
+                comp.paths.Add(new CultivationPath { pathDef = Props.pathDef, stageIndex = 0, xp = 0f });
                 Messages.Message(user.LabelShort + " изучил путь " + Props.pathDef.label, user, MessageTypeDefOf.PositiveEvent);
             }
         }

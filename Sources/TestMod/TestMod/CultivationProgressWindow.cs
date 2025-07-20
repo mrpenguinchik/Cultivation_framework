@@ -33,7 +33,7 @@ namespace TestMod
             }
         }
 
-        private void DrawPathRow(Rect rect, PathProgress p, CultivationStageDef stage)
+        private void DrawPathRow(Rect rect, CultivationPath p, CultivationStageDef stage)
         {
             Widgets.Label(new Rect(rect.x, rect.y, rect.width, 25f), p.pathDef.label + ": " + stage.label);
             float fillPercent = stage.needProgressToNextStage > 0 ? p.xp / stage.needProgressToNextStage : 1f;
