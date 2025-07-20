@@ -160,6 +160,29 @@ namespace TestMod
 
     // Example subclasses
 
+    /// <summary>
+    /// Simple ability that grants Qi to the caster.
+    /// </summary>
+    public class GainQiTechnique : SimpleTechnique
+    {
+        // Amount of Qi restored when used.
+        public float gainAmount = 10f;
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref gainAmount, "gainAmount", 10f);
+        }
+
+        protected override void ActivateSimple(Pawn caster)
+        {
+            var comp = caster.TryGetComp<CompCultivator>();
+            comp?.GainQi(gainAmount);
+            Messages.Message(caster.LabelShort + " восстанавливает ци", caster,
+                MessageTypeDefOf.PositiveEvent);
+        }
+    }
+
 
  
 

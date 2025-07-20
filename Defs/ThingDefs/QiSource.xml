@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>QiCrystal</defName>
+    <label>qi crystal</label>
+    <description>A crystal that radiates Qi.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Resource/StoneBlocks/StoneBlocksGranite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <comps>
+      <li Class="TestMod.CompProperties_QiSource">
+        <element>None</element>
+        <qiAmount>100</qiAmount>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

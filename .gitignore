@@ -1,2 +1,6 @@
 Sources/TestMod/.vs
 Sources/TestMod/TestMod/obj
+Sources/TestMod/TestMod/bin
+Assemblies/*.dll
+Assemblies/*.pdb
+

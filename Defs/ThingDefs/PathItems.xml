@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="Book" Class="TestMod.PathBookDef">
+    <defName>BookSpiritualPath</defName>
+    <label>spiritual path manual</label>
+    <description>A book that teaches the Spiritual Path.</description>
+    <pathDef>CF_SpiritualPath</pathDef>
+    <comps>
+      <li Class="TestMod.CompProperties_LearnPath" />
+    </comps>
+  </ThingDef>
+</Defs>
