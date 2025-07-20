@@ -42,6 +42,49 @@ namespace CultivationFramework
         BloodQi,
         SoulEnergy//TODO psyfocus compatbility
     }
+
+    public enum QiElement
+    {
+        None,
+        Fire,
+        Water,
+        Earth,
+        Metal,
+        Wood
+    }
+
+    public static class QiElementUtility
+    {
+        // Element that nourishes the key one in the generating cycle
+        private static readonly Dictionary<QiElement, QiElement> feeds = new Dictionary<QiElement, QiElement>
+        {
+            { QiElement.Wood, QiElement.Fire },
+            { QiElement.Fire, QiElement.Earth },
+            { QiElement.Earth, QiElement.Metal },
+            { QiElement.Metal, QiElement.Water },
+            { QiElement.Water, QiElement.Wood }
+        };
+
+        // Element that controls the key one in the overcoming cycle
+        private static readonly Dictionary<QiElement, QiElement> suppresses = new Dictionary<QiElement, QiElement>
+        {
+            { QiElement.Wood, QiElement.Earth },
+            { QiElement.Earth, QiElement.Water },
+            { QiElement.Water, QiElement.Fire },
+            { QiElement.Fire, QiElement.Metal },
+            { QiElement.Metal, QiElement.Wood }
+        };
+
+        public static bool Feeds(this QiElement source, QiElement target)
+        {
+            return feeds.TryGetValue(source, out var nourished) && nourished == target;
+        }
+
+        public static bool Suppresses(this QiElement source, QiElement target)
+        {
+            return suppresses.TryGetValue(source, out var suppressed) && suppressed == target;
+        }
+    }
     #endregion
 
 
