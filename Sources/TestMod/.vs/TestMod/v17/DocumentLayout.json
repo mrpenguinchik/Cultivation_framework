@@ -1,0 +1,160 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|g:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\testmod\\sources\\testmod\\testmod\\techniques.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|solutionrelative:testmod\\techniques.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|g:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\testmod\\sources\\testmod\\testmod\\frameworkbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|solutionrelative:testmod\\frameworkbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|g:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\testmod\\sources\\testmod\\testmod\\pathprogress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|solutionrelative:testmod\\pathprogress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|g:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\testmod\\sources\\testmod\\testmod\\cultivationstage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|solutionrelative:testmod\\cultivationstage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|g:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\testmod\\sources\\testmod\\testmod\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|solutionrelative:testmod\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|g:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\testmod\\sources\\testmod\\testmod\\cultivationpath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|solutionrelative:testmod\\cultivationpath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|g:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\testmod\\sources\\testmod\\testmod\\cultivationcomp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|solutionrelative:testmod\\cultivationcomp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|g:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\testmod\\sources\\testmod\\testmod\\testmod.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A073179C-FF4E-4665-A4C0-7EF0024A99A3}|TestMod\\TestMod.csproj|solutionrelative:testmod\\testmod.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Techniques.cs",
+              "DocumentMoniker": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\Techniques.cs",
+              "RelativeDocumentMoniker": "TestMod\\Techniques.cs",
+              "ToolTip": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\Techniques.cs",
+              "RelativeToolTip": "TestMod\\Techniques.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAA7wEMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T07:37:39.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PathProgress.cs",
+              "DocumentMoniker": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\PathProgress.cs",
+              "RelativeDocumentMoniker": "TestMod\\PathProgress.cs",
+              "ToolTip": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\PathProgress.cs",
+              "RelativeToolTip": "TestMod\\PathProgress.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T07:35:48.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CultivationComp.cs",
+              "DocumentMoniker": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\CultivationComp.cs",
+              "RelativeDocumentMoniker": "TestMod\\CultivationComp.cs",
+              "ToolTip": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\CultivationComp.cs",
+              "RelativeToolTip": "TestMod\\CultivationComp.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAcwBAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T07:33:38.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CultivationStage.cs",
+              "DocumentMoniker": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\CultivationStage.cs",
+              "RelativeDocumentMoniker": "TestMod\\CultivationStage.cs",
+              "ToolTip": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\CultivationStage.cs",
+              "RelativeToolTip": "TestMod\\CultivationStage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T07:31:56.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CultivationPath.cs",
+              "DocumentMoniker": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\CultivationPath.cs",
+              "RelativeDocumentMoniker": "TestMod\\CultivationPath.cs",
+              "ToolTip": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\CultivationPath.cs",
+              "RelativeToolTip": "TestMod\\CultivationPath.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T07:31:12.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrameworkBase.cs",
+              "DocumentMoniker": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\FrameworkBase.cs",
+              "RelativeDocumentMoniker": "TestMod\\FrameworkBase.cs",
+              "ToolTip": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\FrameworkBase.cs",
+              "RelativeToolTip": "TestMod\\FrameworkBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T07:22:17.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TestMod.csproj",
+              "DocumentMoniker": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\TestMod.csproj",
+              "RelativeDocumentMoniker": "TestMod\\TestMod.csproj",
+              "ToolTip": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\TestMod.csproj",
+              "RelativeToolTip": "TestMod\\TestMod.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-16T19:23:03.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Main.cs",
+              "DocumentMoniker": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\Main.cs",
+              "RelativeDocumentMoniker": "TestMod\\Main.cs",
+              "ToolTip": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\Main.cs",
+              "RelativeToolTip": "TestMod\\Main.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T19:22:59.816Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

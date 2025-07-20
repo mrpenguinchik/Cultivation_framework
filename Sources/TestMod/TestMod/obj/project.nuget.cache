@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "EXKxEa75DJk=",
+  "success": true,
+  "projectFilePath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\TestMod\\Sources\\TestMod\\TestMod\\TestMod.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mm500\\.nuget\\packages\\krafs.rimworld.ref\\1.6.4518\\krafs.rimworld.ref.1.6.4518.nupkg.sha512",
+    "C:\\Users\\mm500\\.nuget\\packages\\lib.harmony\\2.3.6\\lib.harmony.2.3.6.nupkg.sha512"
+  ],
+  "logs": []
+}
