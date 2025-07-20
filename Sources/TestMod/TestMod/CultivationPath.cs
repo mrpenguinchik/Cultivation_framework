@@ -24,4 +24,22 @@ namespace TestMod
     }
 
     #endregion
+
+    public class CultivationPath : IExposable
+    {
+        public CultivationPathDef pathDef;
+        public int stageIndex;
+        public float xp;
+        public float currentQi;
+        public float maxQi;
+
+        public void ExposeData()
+        {
+            Scribe_Defs.Look(ref pathDef, "pathDef");
+            Scribe_Values.Look(ref stageIndex, "stageIndex");
+            Scribe_Values.Look(ref xp, "xp");
+            Scribe_Values.Look(ref currentQi, "currentQi");
+            Scribe_Values.Look(ref maxQi, "maxQi");
+        }
+    }
 }

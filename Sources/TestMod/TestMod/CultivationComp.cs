@@ -30,7 +30,7 @@ namespace TestMod
         public CompProperties_Cultivator Props => (CompProperties_Cultivator)props;
 
         #region Fields
-        public List<PathProgress> paths = new List<PathProgress>();
+        public List<CultivationPath> paths = new List<CultivationPath>();
         public List<CultivationTechnique> knownTechniques = new List<CultivationTechnique>();
         public int activePathIndex;
         public int CurrentRealm => paths.Any() ? paths.Max(p => p.stageIndex) : 0;
@@ -97,7 +97,7 @@ namespace TestMod
 
         private void HandlePathProgress()
         {
-            List<PathProgress> active = new List<PathProgress>();
+            List<CultivationPath> active = new List<CultivationPath>();
             if (Props.cultivateMultiplePaths)
             {
                 active.AddRange(paths);
@@ -120,13 +120,9 @@ namespace TestMod
                 {
                     p.xp -= stage.needProgressToNextStage;
                     p.stageIndex++;
-                    var nextStage = p.pathDef.stageDefs[p.stageIndex];
-                    if (nextStage.innateTechniques != null)
-                    {
-                        foreach (var tech in nextStage.innateTechniques)
-                            if (!knownTechniques.Contains(tech))
-                                knownTechniques.Add(tech);
-                    }
+                    var nextStageDef = p.pathDef.stageDefs[p.stageIndex];
+                    var stageObj = nextStageDef.CreateStage();
+                    stageObj.Breakthrough(p, this);
                 }
             }
             // Realm is derived dynamically from paths
