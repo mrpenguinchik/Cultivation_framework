@@ -31,8 +31,7 @@ namespace TestMod
         public float currentQi;
         public float maxQi;
 
-        public CultivationRealm currentRealm = CultivationRealm.Mortal;
-        public int minorStage; // 0‑9 for small steps inside a realm.
+   
             
         public List<PathProgress> paths = new List<PathProgress>();
         public List<CultivationTechnique> knownTechniques = new List<CultivationTechnique>();
@@ -126,8 +125,6 @@ namespace TestMod
             base.PostExposeData();
             Scribe_Values.Look(ref currentQi, "currentQi");
             Scribe_Values.Look(ref maxQi, "maxQi");
-            Scribe_Values.Look(ref currentRealm, "currentRealm", CultivationRealm.Mortal);
-            Scribe_Values.Look(ref minorStage, "minorStage");
             Scribe_Collections.Look(ref paths, "paths", LookMode.Deep);
             Scribe_Collections.Look(ref knownTechniques, "knownTechniques", LookMode.Deep);
         }

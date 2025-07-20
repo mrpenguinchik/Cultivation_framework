@@ -20,7 +20,6 @@ namespace TestMod
         public string defName;
         public string label;
         public CultivationPathType? pathRequirement;
-        public CultivationRealm minRealm = CultivationRealm.Mortal;
         public float qiCost = 10f;
         public int cooldownTicks = 60;
         protected int nextUsableTick;

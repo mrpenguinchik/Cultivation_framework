@@ -16,15 +16,7 @@ namespace CultivationFramework
 {
     #region Enumerations
 
-    public enum CultivationRealm
-    {
-        Mortal,
-        QiRefinement,
-        Foundation,
-        CoreFormation,
-        NascentSoul,
-        SoulDivine
-    }
+
 
     public enum CultivationPathType
     {
