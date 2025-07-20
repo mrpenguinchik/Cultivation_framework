@@ -2,5 +2,8 @@
 <Defs>
   <ThingDef ParentName="ItemBase" Name="Book" Abstract="True">
     <thingClass>ThingWithComps</thingClass>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
   </ThingDef>
 </Defs>
