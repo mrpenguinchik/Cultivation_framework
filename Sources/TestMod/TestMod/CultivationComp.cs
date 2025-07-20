@@ -12,6 +12,8 @@ namespace TestMod
 
     public class CompProperties_Cultivator : CompProperties
     {
+        public bool cultivateMultiplePaths = true;
+        public float progressPerTick = 1f;
         public CompProperties_Cultivator()
         {
             compClass = typeof(CompCultivator);
@@ -30,11 +32,13 @@ namespace TestMod
         #region Fields
         public float currentQi;
         public float maxQi;
+        public int currentRealm;
 
    
             
         public List<PathProgress> paths = new List<PathProgress>();
         public List<CultivationTechnique> knownTechniques = new List<CultivationTechnique>();
+        public int activePathIndex;
         #endregion
 
         #region Ticking / Qi regeneration
@@ -43,6 +47,7 @@ namespace TestMod
             base.CompTick();
             if (parent.Map == null) return;
             RegenerateQi();
+            HandlePathProgress();
             foreach (var tech in knownTechniques) tech.Tick();
         }
 
@@ -94,6 +99,44 @@ namespace TestMod
             float regen = 0.01f * bodySize * multiplier;
             currentQi = Mathf.Min(currentQi + regen, maxQi);
         }
+
+        private void HandlePathProgress()
+        {
+            if (currentQi < maxQi) return;
+
+            List<PathProgress> active = new List<PathProgress>();
+            if (Props.cultivateMultiplePaths)
+            {
+                active.AddRange(paths);
+            }
+            else if (activePathIndex >= 0 && activePathIndex < paths.Count)
+            {
+                active.Add(paths[activePathIndex]);
+            }
+
+            if (active.Count == 0) return;
+
+            float amount = Props.progressPerTick / active.Count;
+            foreach (var p in active)
+            {
+                if (p.stageIndex < 0 || p.stageIndex >= p.pathDef.stageDefs.Count) continue;
+                var stage = p.pathDef.stageDefs[p.stageIndex];
+                p.xp += amount;
+                if (p.xp >= stage.needProgressToNextStage && p.stageIndex < p.pathDef.stageDefs.Count - 1)
+                {
+                    p.xp -= stage.needProgressToNextStage;
+                    p.stageIndex++;
+                    var nextStage = p.pathDef.stageDefs[p.stageIndex];
+                    if (nextStage.innateTechniques != null)
+                    {
+                        foreach (var tech in nextStage.innateTechniques)
+                            if (!knownTechniques.Contains(tech))
+                                knownTechniques.Add(tech);
+                    }
+                }
+            }
+            currentRealm = paths.Max(p => p.stageIndex);
+        }
         #endregion
 
         #region API helpers
@@ -114,6 +157,12 @@ namespace TestMod
         #region Gizmos
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
+            yield return new Command_Action
+            {
+                defaultLabel = "Cultivation",
+                defaultDesc = "View cultivation progress",
+                action = () => Find.WindowStack.Add(new Window_CultivationProgress(this))
+            };
             foreach (var tech in knownTechniques)
                 yield return tech.GetGizmo(parent as Pawn);
         }
@@ -125,8 +174,12 @@ namespace TestMod
             base.PostExposeData();
             Scribe_Values.Look(ref currentQi, "currentQi");
             Scribe_Values.Look(ref maxQi, "maxQi");
+            Scribe_Values.Look(ref currentRealm, "currentRealm", 0);
+            Scribe_Values.Look(ref activePathIndex, "activePathIndex", 0);
             Scribe_Collections.Look(ref paths, "paths", LookMode.Deep);
             Scribe_Collections.Look(ref knownTechniques, "knownTechniques", LookMode.Deep);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+                currentRealm = paths.Any() ? paths.Max(p => p.stageIndex) : 0;
         }
         #endregion
     }

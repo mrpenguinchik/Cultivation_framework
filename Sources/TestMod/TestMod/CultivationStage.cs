@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Verse;
+using UnityEngine;
 
 namespace TestMod
 {
@@ -13,11 +14,11 @@ namespace TestMod
         public QiType qiType;
 
         // Multiplier to the base Qi regeneration rate.
-        public float baseRegenMultiplier = 1f;
+       public float baseRegenMultiplier = 1f;
 
         // Techniques unlocked automatically when reached this stage.
        public List<CultivationTechnique> innateTechniques;
        public CultivationStageDef currentStage;
-        public float needProgressToNextStage;
+       public float needProgressToNextStage;
     }
 }
