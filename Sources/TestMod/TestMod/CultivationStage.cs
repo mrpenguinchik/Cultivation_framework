@@ -17,6 +17,7 @@ namespace TestMod
 
         // Techniques unlocked automatically when reached this stage.
        public List<CultivationTechnique> innateTechniques;
+       public CultivationStageDef currentStage;
         public float needProgressToNextStage;
     }
 }

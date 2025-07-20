@@ -33,7 +33,7 @@ namespace TestMod
 
         public CultivationRealm currentRealm = CultivationRealm.Mortal;
         public int minorStage; // 0‑9 for small steps inside a realm.
-             public CultivationStageDef currentStage;
+            
         public List<PathProgress> paths = new List<PathProgress>();
         public List<CultivationTechnique> knownTechniques = new List<CultivationTechnique>();
         #endregion
