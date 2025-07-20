@@ -45,8 +45,8 @@ namespace TestMod
         public bool CanCast(Pawn pawn, CompCultivator comp)
         {
             if (Find.TickManager.TicksGame < nextUsableTick) return false;
-            if (comp.currentQi < qiCost) return false;
-            if (comp.currentRealm < minRealm) return false;
+            if (!comp.HasQi(qiCost, qiTypeRequirement)) return false;
+            if (comp.CurrentRealm < minRealm) return false;
             if (pathRequirement.HasValue && !comp.paths.Any(p => p.pathDef.pathType == pathRequirement.Value))
                 return false;
             if (qiTypeRequirement.HasValue && !comp.paths.Any(p =>
@@ -67,7 +67,7 @@ namespace TestMod
                 action = () =>
                 {
                     var comp = pawn.TryGetComp<CompCultivator>();
-                    if (comp != null && CanCast(pawn, comp) && comp.ConsumeQi(qiCost))
+                    if (comp != null && CanCast(pawn, comp) && comp.ConsumeQi(qiCost, qiTypeRequirement))
                     {
                         Activate(pawn);
                         nextUsableTick = Find.TickManager.TicksGame + cooldownTicks;
