@@ -20,8 +20,10 @@ namespace TestMod
         public string defName;
         public string label;
         public CultivationPathType? pathRequirement;
+        public QiType? qiTypeRequirement;
         public float qiCost = 10f;
         public int cooldownTicks = 60;
+        public int minRealm;
         protected int nextUsableTick;
         public Texture2D icon;
 
@@ -30,8 +32,11 @@ namespace TestMod
         {
             Scribe_Values.Look(ref defName, "defName");
             Scribe_Values.Look(ref label, "label");
+            Scribe_Values.Look(ref pathRequirement, "pathRequirement");
+            Scribe_Values.Look(ref qiTypeRequirement, "qiTypeRequirement");
             Scribe_Values.Look(ref qiCost, "qiCost");
             Scribe_Values.Look(ref cooldownTicks, "cooldownTicks");
+            Scribe_Values.Look(ref minRealm, "minRealm", 0);
             Scribe_Values.Look(ref nextUsableTick, "nextUsableTick");
         }
         #endregion
@@ -43,6 +48,10 @@ namespace TestMod
             if (comp.currentQi < qiCost) return false;
             if (comp.currentRealm < minRealm) return false;
             if (pathRequirement.HasValue && !comp.paths.Any(p => p.pathDef.pathType == pathRequirement.Value))
+                return false;
+            if (qiTypeRequirement.HasValue && !comp.paths.Any(p =>
+                    p.stageIndex >= 0 && p.stageIndex < p.pathDef.stageDefs.Count &&
+                    p.pathDef.stageDefs[p.stageIndex].qiType == qiTypeRequirement.Value))
                 return false;
             return true;
         }
