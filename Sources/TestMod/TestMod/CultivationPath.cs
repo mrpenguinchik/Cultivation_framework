@@ -17,6 +17,7 @@ namespace TestMod
     public class CultivationPathDef : Def
     {
         public CultivationPathType pathType;
+        public QiElement element = QiElement.None;
 
         // List of display names for major stages (e.g. "Foundation", "Core Formation" …)
        public List<CultivationStageDef> stageDefs;

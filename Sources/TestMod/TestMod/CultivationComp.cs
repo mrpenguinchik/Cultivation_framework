@@ -47,20 +47,49 @@ namespace TestMod
             foreach (var tech in knownTechniques) tech.Tick();
         }
 
+        private CompQiSource FindNearbyQiSource(float radius = 5f)
+        {
+            if (parent.Map == null) return null;
+            Map map = parent.Map;
+            foreach (var cell in GenRadial.RadialCellsAround(parent.Position, radius, true))
+            {
+                if (!cell.InBounds(map)) continue;
+                var things = cell.GetThingList(map);
+                foreach (var t in things)
+                {
+                    var comp = t.TryGetComp<CompQiSource>();
+                    if (comp != null && comp.QiAmount > 0f)
+                        return comp;
+                }
+            }
+            return null;
+        }
+
         private void RegenerateQi()
         {
             // Use pawn's BodySize if available; else fall back to 1f (for non‑pawn things).
             Pawn pawn = parent as Pawn;
             float bodySize = pawn?.BodySize ?? 1f;
 
+            var source = FindNearbyQiSource();
+            if (source == null) return; // cannot cultivate away from Qi
+
             float multiplier = 1f;
-            if (currentStage != null)
+            foreach (var p in paths)
             {
-                foreach (var p in paths)
+                if (p.stageIndex >= 0 && p.stageIndex < p.pathDef.stageDefs.Count)
                 {
                     var stage = p.pathDef.stageDefs[p.stageIndex];
                     multiplier *= stage.baseRegenMultiplier;
                 }
+
+                var elem = p.pathDef.element;
+                if (source.Element == elem)
+                    multiplier *= 1.5f;
+                else if (source.Element.Feeds(elem))
+                    multiplier *= 1.2f;
+                else if (source.Element.Suppresses(elem))
+                    multiplier *= 0.5f;
             }
 
             float regen = 0.01f * bodySize * multiplier;
@@ -99,7 +128,6 @@ namespace TestMod
             Scribe_Values.Look(ref maxQi, "maxQi");
             Scribe_Values.Look(ref currentRealm, "currentRealm", CultivationRealm.Mortal);
             Scribe_Values.Look(ref minorStage, "minorStage");
-            Scribe_Defs.Look(ref currentStage, "currentStage");
             Scribe_Collections.Look(ref paths, "paths", LookMode.Deep);
             Scribe_Collections.Look(ref knownTechniques, "knownTechniques", LookMode.Deep);
         }
