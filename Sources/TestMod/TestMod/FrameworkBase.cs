@@ -33,7 +33,15 @@ namespace CultivationFramework
         Alchemy,
         Demonic
     }
-
+    public enum QiType
+    {
+        BaseQi,
+        CoreQi,
+        NascentQi,
+        ImmortalQi,
+        BloodQi,
+        SoulEnergy//TODO psyfocus compatbility
+    }
     #endregion
 
 

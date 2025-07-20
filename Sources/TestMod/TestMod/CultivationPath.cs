@@ -19,16 +19,9 @@ namespace TestMod
         public CultivationPathType pathType;
 
         // List of display names for major stages (e.g. "Foundation", "Core Formation" …)
-        public List<string> majorStages = new List<string>();
-
-        // Qi cap per major stage. Key = stage index (0‑based), Value = max Qi.
-        public Dictionary<int, float> stageQiCap = new Dictionary<int, float>();
-
-        // Multiplier to the base Qi regeneration rate.
-        public float baseRegenMultiplier = 1f;
-
-        // Techniques unlocked automatically when entering this path (defNames).
-        public List<string> startingTechniques = new List<string>();
+       public List<CultivationStageDef> stageDefs;
+   
+        public float progress;
     }
 
     #endregion

@@ -9,8 +9,6 @@ namespace TestMod
 {
 
 
-    #region Path progress per Pawn
-
     public class PathProgress : IExposable
     {
         public CultivationPathDef pathDef;
@@ -25,5 +23,4 @@ namespace TestMod
         }
     }
 
-    #endregion
 }

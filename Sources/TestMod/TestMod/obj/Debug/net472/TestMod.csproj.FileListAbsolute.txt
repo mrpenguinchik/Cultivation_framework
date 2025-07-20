@@ -1,9 +1,0 @@
-G:\SteamLibrary\steamapps\common\RimWorld\Mods\TestMod\Sources\TestMod\TestMod\bin\Debug\net472\TestMod.dll
-G:\SteamLibrary\steamapps\common\RimWorld\Mods\TestMod\Sources\TestMod\TestMod\bin\Debug\net472\TestMod.pdb
-G:\SteamLibrary\steamapps\common\RimWorld\Mods\TestMod\Sources\TestMod\TestMod\obj\Debug\net472\TestMod.csproj.AssemblyReference.cache
-G:\SteamLibrary\steamapps\common\RimWorld\Mods\TestMod\Sources\TestMod\TestMod\obj\Debug\net472\TestMod.GeneratedMSBuildEditorConfig.editorconfig
-G:\SteamLibrary\steamapps\common\RimWorld\Mods\TestMod\Sources\TestMod\TestMod\obj\Debug\net472\TestMod.AssemblyInfoInputs.cache
-G:\SteamLibrary\steamapps\common\RimWorld\Mods\TestMod\Sources\TestMod\TestMod\obj\Debug\net472\TestMod.AssemblyInfo.cs
-G:\SteamLibrary\steamapps\common\RimWorld\Mods\TestMod\Sources\TestMod\TestMod\obj\Debug\net472\TestMod.csproj.CoreCompileInputs.cache
-G:\SteamLibrary\steamapps\common\RimWorld\Mods\TestMod\Sources\TestMod\TestMod\obj\Debug\net472\TestMod.dll
-G:\SteamLibrary\steamapps\common\RimWorld\Mods\TestMod\Sources\TestMod\TestMod\obj\Debug\net472\TestMod.pdb

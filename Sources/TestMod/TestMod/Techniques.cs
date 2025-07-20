@@ -10,7 +10,7 @@ using Verse;
 
 namespace TestMod
 {
-    #region Techniques (abilities)
+
 
     /// <summary>
     /// Abstract base class for every cultivation ability.
@@ -120,5 +120,5 @@ namespace TestMod
         }
     }
 
-    #endregion
+
 }

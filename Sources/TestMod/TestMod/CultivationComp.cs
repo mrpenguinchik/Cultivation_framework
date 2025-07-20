@@ -9,7 +9,7 @@ using Verse;
 
 namespace TestMod
 {
-    #region Component
+
 
     /// <summary>
     /// Core component attached to Pawn when they become a cultivator.
@@ -23,7 +23,7 @@ namespace TestMod
 
         public CultivationRealm currentRealm = CultivationRealm.Mortal;
         public int minorStage; // 0‑9 for small steps inside a realm.
-
+             public CultivationStageDef currentStage;
         public List<PathProgress> paths = new List<PathProgress>();
         public List<CultivationTechnique> knownTechniques = new List<CultivationTechnique>();
         #endregion
@@ -44,7 +44,7 @@ namespace TestMod
             float bodySize = pawn?.BodySize ?? 1f;
 
             float multiplier = 1f;
-            foreach (var p in paths) multiplier *= p.pathDef.baseRegenMultiplier;
+            foreach (var p in paths) multiplier *= currentStage.baseRegenMultiplier;
 
             float regen = 0.01f * bodySize * multiplier;
             currentQi = Mathf.Min(currentQi + regen, maxQi);
@@ -88,5 +88,5 @@ namespace TestMod
         #endregion
     }
 
-    #endregion
+
 }
