@@ -45,6 +45,7 @@ namespace CultivationFramework
         Wood
     }
 
+
     public static class QiElementUtility
     {
         // Element that nourishes the key one in the generating cycle
