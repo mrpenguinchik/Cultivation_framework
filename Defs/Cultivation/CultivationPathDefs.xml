@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <TestMod.CultivationStageDef ParentName=""> <!-- Stage 1 -->
+  <TestMod.CultivationStageDef> <!-- Stage 1 -->
     <defName>CF_Stage_Foundation</defName>
     <label>Foundation</label>
     <qiType>BaseQi</qiType>
@@ -8,7 +8,7 @@
     <needProgressToNextStage>100</needProgressToNextStage>
   </TestMod.CultivationStageDef>
 
-  <TestMod.CultivationStageDef ParentName=""> <!-- Stage 2 -->
+  <TestMod.CultivationStageDef> <!-- Stage 2 -->
     <defName>CF_Stage_Core</defName>
     <label>Core Formation</label>
     <qiType>CoreQi</qiType>
