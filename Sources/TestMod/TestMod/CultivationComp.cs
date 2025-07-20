@@ -1,4 +1,4 @@
-﻿using CultivationFramework;
+using CultivationFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,14 @@ using Verse;
 namespace TestMod
 {
 
+    public class CompProperties_Cultivator : CompProperties
+    {
+        public CompProperties_Cultivator()
+        {
+            compClass = typeof(CompCultivator);
+        }
+    }
+
 
     /// <summary>
     /// Core component attached to Pawn when they become a cultivator.
@@ -17,6 +25,8 @@ namespace TestMod
     /// </summary>
     public class CompCultivator : ThingComp
     {
+        public CompProperties_Cultivator Props => (CompProperties_Cultivator)props;
+
         #region Fields
         public float currentQi;
         public float maxQi;
@@ -44,7 +54,14 @@ namespace TestMod
             float bodySize = pawn?.BodySize ?? 1f;
 
             float multiplier = 1f;
-            foreach (var p in paths) multiplier *= currentStage.baseRegenMultiplier;
+            if (currentStage != null)
+            {
+                foreach (var p in paths)
+                {
+                    var stage = p.pathDef.stageDefs[p.stageIndex];
+                    multiplier *= stage.baseRegenMultiplier;
+                }
+            }
 
             float regen = 0.01f * bodySize * multiplier;
             currentQi = Mathf.Min(currentQi + regen, maxQi);
@@ -82,6 +99,7 @@ namespace TestMod
             Scribe_Values.Look(ref maxQi, "maxQi");
             Scribe_Values.Look(ref currentRealm, "currentRealm", CultivationRealm.Mortal);
             Scribe_Values.Look(ref minorStage, "minorStage");
+            Scribe_Defs.Look(ref currentStage, "currentStage");
             Scribe_Collections.Look(ref paths, "paths", LookMode.Deep);
             Scribe_Collections.Look(ref knownTechniques, "knownTechniques", LookMode.Deep);
         }

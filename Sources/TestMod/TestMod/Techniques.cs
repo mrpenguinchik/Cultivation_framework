@@ -1,4 +1,4 @@
-﻿using CultivationFramework;
+using CultivationFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
